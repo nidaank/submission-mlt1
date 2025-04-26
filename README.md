@@ -37,13 +37,13 @@ Dataset yang digunakan dalam proyek ini merupakan data sintetis berjumlah 1000 d
 Sumber Dataset: [Laptop Price Prediction](https://www.kaggle.com/datasets/mrsimple07/laptoppriceprediction).
 
 ### Variabel-variabel pada Laptop Price Prediction dataset adalah sebagai berikut:
-- Brand: Merek dari laptop. (Dell, HP, Lenovo, Asus, dan Acer).
-- Processor_Speed: Kecepatan prosesor laptop dalam satuan GHz (1.5-4.0 Ghz).
-- RAM_Size: Kapasitas RAM laptop (4GB, 8GB, 16GB, 32GB).
-- Storage_Capacity: Kapasitas penyimpanan, bisa berupa (256GB, 512GB, 1000GB (1TB)).
-- Screen_Size: Ukuran layar laptop dalam inci (11-17 inci).
-- Weight: Berat laptop dalam kilogram (2.0-5.0 kg).
-- Price (INR): Harga laptop dalam satuan mata uang Rupee India, dihasilkan berdasarkan kombinasi fitur dengan penambahan noise acak untuk meniru variasi pasar.
+- Brand (kategorical): Merek dari laptop. (Dell, HP, Lenovo, Asus, dan Acer).
+- Processor_Speed (numerik): Kecepatan prosesor laptop dalam satuan GHz (1.5-4.0 Ghz).
+- RAM_Size (numerik): Kapasitas RAM laptop (4GB, 8GB, 16GB, 32GB).
+- Storage_Capacity (numerik): Kapasitas penyimpanan, bisa berupa (256GB, 512GB, 1000GB (1TB)).
+- Screen_Size (numerik): Ukuran layar laptop dalam inci (11-17 inci).
+- Weight (numerik): Berat laptop dalam kilogram (2.0-5.0 kg).
+- Price (INR) (numerik): Harga laptop dalam satuan mata uang Rupee India, dihasilkan berdasarkan kombinasi fitur dengan penambahan noise acak untuk meniru variasi pasar.
 
 ### Kondisi Data
 1. Missing Value
