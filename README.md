@@ -90,209 +90,209 @@ Deskripsi variabel dilakukan untuk memeriksa semua kolom pada dataset, termasuk 
 
 2. Univariate Analysis 
 Univariate analysis dilakukan untuk memahami distribusi masing-masing fitur secara individu:
-- Fitur Kategorikal: Untuk fitur kategorikal, dilakukan visualisasi menggunakan histogram atau countplot untuk melihat frekuensi masing-masing kategori.
-
-    ![Alt text](image/image-3.png)
-
-  Gambar tersebut menunjukkan distribusi jumlah data berdasarkan fitur kategorikal "Brand", di mana merek Dell, Asus, dan Acer memiliki jumlah data yang sedikit lebih banyak dibandingkan Lenovo dan HP. Secara keseluruhan, distribusi antar brand cukup merata, menandakan tidak ada dominasi merek tertentu dalam dataset.
-
-- Fitur Numerik: Untuk fitur numerik, dibuat histogram untuk melihat pola distribusi nilai, seperti apakah data berdistribusi normal, skewed (miring), atau memiliki distribusi khusus lainnya.
-
-    ![Alt text](image/image-4.png)
-
-    Gambar tersebut menunjukkan distribusi fitur numerik seperti Processor_Speed, RAM_Size, Storage_Capacity, Screen_Size, Weight, dan Price, di mana beberapa fitur (seperti RAM_Size, Storage_Capacity, dan Price) memiliki pola distribusi yang terpusat pada nilai-nilai tertentu. Sementara fitur lain seperti Processor_Speed, Screen_Size, dan Weight cenderung memiliki distribusi yang lebih merata tanpa konsentrasi ekstrem.
+    - Fitur Kategorikal: Untuk fitur kategorikal, dilakukan visualisasi menggunakan histogram atau countplot untuk melihat frekuensi masing-masing kategori.
+    
+        ![Alt text](image/image-3.png)
+    
+      Gambar tersebut menunjukkan distribusi jumlah data berdasarkan fitur kategorikal "Brand", di mana merek Dell, Asus, dan Acer memiliki jumlah data yang sedikit lebih banyak dibandingkan Lenovo dan HP. Secara keseluruhan, distribusi antar brand cukup merata, menandakan tidak ada dominasi merek tertentu dalam dataset.
+    
+    - Fitur Numerik: Untuk fitur numerik, dibuat histogram untuk melihat pola distribusi nilai, seperti apakah data berdistribusi normal, skewed (miring), atau memiliki distribusi khusus lainnya.
+    
+        ![Alt text](image/image-4.png)
+    
+        Gambar tersebut menunjukkan distribusi fitur numerik seperti Processor_Speed, RAM_Size, Storage_Capacity, Screen_Size, Weight, dan Price, di mana beberapa fitur (seperti RAM_Size, Storage_Capacity, dan Price) memiliki pola distribusi yang terpusat pada nilai-nilai tertentu. Sementara fitur lain seperti Processor_Speed, Screen_Size, dan Weight cenderung memiliki distribusi yang lebih merata tanpa konsentrasi ekstrem.
 
 3. Multivariate Analysis
 Multivariate analysis dilakukan untuk memahami hubungan antara dua atau lebih fitur dalam dataset:
-- Fitur Kategorikal:
-Untuk fitur kategorikal, dianalisis pengaruh kategori terhadap harga (atau target) dengan menghitung rata-rata harga untuk setiap kategori. Hal ini membantu mengidentifikasi fitur kategori mana yang memiliki pengaruh signifikan terhadap target.
-
-    ![Alt text](image/image-5.png)
-
-    Gambar di atas menunjukkan analisis hubungan antara rata-rata harga (Price) dengan masing-masing Brand laptop. Dapat dilihat bahwa perbedaan harga antar merek relatif kecil, dengan Asus, Acer, dan Lenovo memiliki rata-rata harga sedikit lebih tinggi dibanding HP dan Dell, namun secara umum seluruh merek memiliki kisaran harga yang serupa.
-- Fitur Numerik:
-  - Pairplot: Menggunakan fungsi pairplot() untuk mengamati hubungan antar fitur numerik secara visual. Ini membantu mendeteksi korelasi linier, pola hubungan, atau adanya cluster dalam data.
-
-    ![Alt text](image/image-7.png)
-
-    Sebagian besar fitur numerik tidak memiliki hubungan linear yang kuat dan terdistribusi cukup merata, dengan fitur seperti RAM dan Storage bersifat diskrit.
-
-  - Correlation matrix dibuat untuk menampilkan korelasi antar fitur numerik. Visualisasi dengan heatmap digunakan untuk memperjelas fitur-fitur mana yang memiliki korelasi tinggi terhadap target ataupun antar sesama fitur.
-
-    ![Alt text](image/image-6.png)
-
-    Korelasi antar fitur numerik sangat lemah, di mana harga hanya sedikit dipengaruhi oleh RAM dan Storage, sementara fitur lainnya hampir tidak berkorelasi.
+    - Fitur Kategorikal:
+    Untuk fitur kategorikal, dianalisis pengaruh kategori terhadap harga (atau target) dengan menghitung rata-rata harga untuk setiap kategori. Hal ini membantu mengidentifikasi fitur kategori mana yang memiliki pengaruh signifikan terhadap target.
+    
+        ![Alt text](image/image-5.png)
+    
+        Gambar di atas menunjukkan analisis hubungan antara rata-rata harga (Price) dengan masing-masing Brand laptop. Dapat dilihat bahwa perbedaan harga antar merek relatif kecil, dengan Asus, Acer, dan Lenovo memiliki rata-rata harga sedikit lebih tinggi dibanding HP dan Dell, namun secara umum seluruh merek memiliki kisaran harga yang serupa.
+    - Fitur Numerik:
+      - Pairplot: Menggunakan fungsi pairplot() untuk mengamati hubungan antar fitur numerik secara visual. Ini membantu mendeteksi korelasi linier, pola hubungan, atau adanya cluster dalam data.
+    
+        ![Alt text](image/image-7.png)
+    
+        Sebagian besar fitur numerik tidak memiliki hubungan linear yang kuat dan terdistribusi cukup merata, dengan fitur seperti RAM dan Storage bersifat diskrit.
+    
+      - Correlation matrix dibuat untuk menampilkan korelasi antar fitur numerik. Visualisasi dengan heatmap digunakan untuk memperjelas fitur-fitur mana yang memiliki korelasi tinggi terhadap target ataupun antar sesama fitur.
+    
+        ![Alt text](image/image-6.png)
+    
+        Korelasi antar fitur numerik sangat lemah, di mana harga hanya sedikit dipengaruhi oleh RAM dan Storage, sementara fitur lainnya hampir tidak berkorelasi.
 
 ## Data Preparation
 Pada tahap ini dilakukan beberapa teknik persiapan data untuk memastikan bahwa data siap digunakan dalam proses pemodelan machine learning. Teknik yang dilakukan antara lain:
 
-- Encoding Fitur Kategorikal 
-  Fitur kategorikal pada dataset, yaitu Brand, diubah menjadi bentuk numerik menggunakan teknik One-Hot Encoding.
-  Proses ini bertujuan agar fitur tersebut dapat digunakan oleh algoritma machine learning, yang umumnya hanya menerima input numerik.
-  One-Hot Encoding menjaga makna dari fitur kategorikal tanpa memberikan urutan nilai yang salah, sehingga model dapat memanfaatkan informasi kategorikal dengan optimal.
-  ```
-  from sklearn.preprocessing import  OneHotEncoder
+1. Encoding Fitur Kategorikal 
+      Fitur kategorikal pada dataset, yaitu Brand, diubah menjadi bentuk numerik menggunakan teknik One-Hot Encoding.
+      Proses ini bertujuan agar fitur tersebut dapat digunakan oleh algoritma machine learning, yang umumnya hanya menerima input numerik.
+      One-Hot Encoding menjaga makna dari fitur kategorikal tanpa memberikan urutan nilai yang salah, sehingga model dapat memanfaatkan informasi kategorikal dengan optimal.
+      ```
+      from sklearn.preprocessing import  OneHotEncoder
+    
+      df = pd.concat([df, pd.get_dummies(df['Brand'], prefix='Brand', dtype=int)],axis=1)
+      df.drop(['Brand'], axis=1, inplace=True)
+      df.head()
+      ```
 
-  df = pd.concat([df, pd.get_dummies(df['Brand'], prefix='Brand', dtype=int)],axis=1)
-  df.drop(['Brand'], axis=1, inplace=True)
-  df.head()
-  ```
+2. Train-Test Split
+      Setelah encoding, dataset dibagi menjadi data latih dan data uji dengan perbandingan 90% data latih dan 10% data uji.
+      Tujuan dari pembagian ini adalah:
+      - Melatih model menggunakan data latih.
+      - Menguji performa model terhadap data baru (data uji) yang belum pernah dilihat model sebelumnya, untuk mengevaluasi kemampuan generalisasi model.
+      ```
+      from sklearn.model_selection import train_test_split
+      
+      X = df.drop(["Price"],axis =1)
+      y = df["Price"]
+      X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.1, random_state = 123)
+      ```
 
-- Train-Test Split
-  Setelah encoding, dataset dibagi menjadi data latih dan data uji dengan perbandingan 90% data latih dan 10% data uji.
-  Tujuan dari pembagian ini adalah:
-  - Melatih model menggunakan data latih.
-  - Menguji performa model terhadap data baru (data uji) yang belum pernah dilihat model sebelumnya, untuk mengevaluasi kemampuan generalisasi model.
-  ```
-  from sklearn.model_selection import train_test_split
-  
-  X = df.drop(["Price"],axis =1)
-  y = df["Price"]
-  X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.1, random_state = 123)
-  ```
-
-Teknik ini penting untuk menghindari overfitting dan memberikan gambaran nyata tentang bagaimana model akan bekerja saat diterapkan ke data nyata di luar dataset yang digunakan untuk pelatihan.
+   Teknik ini penting untuk menghindari overfitting dan memberikan gambaran nyata tentang bagaimana model akan bekerja saat diterapkan ke data nyata di luar dataset yang digunakan untuk pelatihan.
 
 ## Modeling
 Pada proses pemodelan, dilakukan tahapan pelatihan dan evaluasi model menggunakan tiga algoritma machine learning, yaitu K-Nearest Neighbors (KNN), Random Forest (RF), dan Linear Regression (LR). Setiap algoritma memiliki pendekatan dan parameter yang berbeda dalam membangun model prediksi harga laptop.
 
-- **K-Nearest Neighbors (KNN)**  
+1. **K-Nearest Neighbors (KNN)**  
   Tahapan pertama adalah membangun model KNN yang memprediksi harga berdasarkan rata-rata harga dari k tetangga terdekat.
-  - Parameter yang digunakan:
-
-    - n_neighbors: jumlah tetangga yang dipertimbangkan (misalnya 11).
-
-    - p: jenis jarak yang digunakan (p=2 untuk Euclidean distance).
-
-  - Model ditingkatkan dengan melakukan pencarian parameter terbaik menggunakan GridSearchCV dengan kombinasi nilai n_neighbors, weights, dan p.
-  ```
-  from sklearn.neighbors import KNeighborsRegressor
-  from sklearn.metrics import mean_squared_error
-  
-  knn = KNeighborsRegressor(n_neighbors=11, p=2)
-  knn.fit(X_train, y_train)
-  
-  models.loc['train_mse','knn'] = mean_squared_error(y_pred = knn.predict(X_train), y_true=y_train)
-  ```  
-  - Untuk meningkatkan performa KNN, dilakukan tuning hyperparameter menggunakan **GridSearchCV**, yaitu dengan mencoba berbagai kombinasi nilai k dan parameter lain untuk menemukan konfigurasi terbaik berdasarkan hasil evaluasi pada data validasi.
-  ```
-  from sklearn.model_selection import GridSearchCV
-  from sklearn.neighbors import KNeighborsRegressor
-  from sklearn.metrics import mean_squared_error
-
-  # Menentukan grid parameter untuk KNN
-  param_grid_knn = {
-      'n_neighbors': [3, 5, 7, 9, 11, 13, 15],
-      'weights': ['uniform', 'distance'],
-      'p': [1, 2]  # p=1 untuk Manhattan, p=2 untuk Euclidean
-  }
-
-  # Inisialisasi model KNN
-  knn = KNeighborsRegressor()
-
-  # Inisialisasi GridSearchCV
-    grid_knn = GridSearchCV(
-        estimator=knn,
-        param_grid=param_grid_knn,
-        cv=5,  # 5-fold cross validation
-        scoring='neg_mean_squared_error',  # gunakan MSE sebagai metrik evaluasi
-        n_jobs=-1,  # gunakan semua CPU cores
-        verbose=1  # tampilkan progres
-    )
-
-    # Melatih GridSearchCV pada data training
-    grid_knn.fit(X_train, y_train)
-
-    # Menampilkan hasil terbaik
-    print("Best KNN Parameters:", grid_knn.best_params_)
-    print("Best KNN MSE (train):", -grid_knn.best_score_)
-
-    # Menghitung MSE pada data test menggunakan model terbaik
-    y_pred_test = grid_knn.predict(X_test)
-    test_mse = mean_squared_error(y_test, y_pred_test)
-    print("Best KNN MSE (test):", test_mse)
-  ```
-
-- **Random Forest (RF)**  
-  Selanjutnya, dilakukan pelatihan model menggunakan algoritma Random Forest yang bekerja dengan membangun banyak pohon keputusan dan menggabungkan hasil prediksi mereka.
-  - Parameter yang digunakan pada awal pelatihan:
-    - n_estimators: jumlah pohon dalam hutan (misalnya 100).
-    - max_depth: kedalaman maksimum pohon (misalnya 10).
-    - min_samples_split dan min_samples_leaf: untuk mengontrol pertumbuhan pohon dan mencegah overfitting.
-  - Untuk mendapatkan model terbaik, dilakukan GridSearchCV pada parameter seperti n_estimators, max_depth, min_samples_split, dan min_samples_leaf.
-  - Evaluasi dilakukan dengan menghitung MSE pada data latih dan uji.
-  ```
-      from sklearn.ensemble import RandomForestRegressor
+      - Parameter yang digunakan:
+    
+        - n_neighbors: jumlah tetangga yang dipertimbangkan (misalnya 11).
+    
+        - p: jenis jarak yang digunakan (p=2 untuk Euclidean distance).
+    
+      - Model ditingkatkan dengan melakukan pencarian parameter terbaik menggunakan GridSearchCV dengan kombinasi nilai n_neighbors, weights, dan p.
+      ```
+      from sklearn.neighbors import KNeighborsRegressor
       from sklearn.metrics import mean_squared_error
+      
+      knn = KNeighborsRegressor(n_neighbors=11, p=2)
+      knn.fit(X_train, y_train)
+      
+      models.loc['train_mse','knn'] = mean_squared_error(y_pred = knn.predict(X_train), y_true=y_train)
+      ```  
+      - Untuk meningkatkan performa KNN, dilakukan tuning hyperparameter menggunakan **GridSearchCV**, yaitu dengan mencoba berbagai kombinasi nilai k dan parameter lain untuk menemukan konfigurasi terbaik berdasarkan hasil evaluasi pada data validasi.
+      ```
+      from sklearn.model_selection import GridSearchCV
+      from sklearn.neighbors import KNeighborsRegressor
+      from sklearn.metrics import mean_squared_error
+    
+      # Menentukan grid parameter untuk KNN
+      param_grid_knn = {
+          'n_neighbors': [3, 5, 7, 9, 11, 13, 15],
+          'weights': ['uniform', 'distance'],
+          'p': [1, 2]  # p=1 untuk Manhattan, p=2 untuk Euclidean
+      }
+    
+      # Inisialisasi model KNN
+      knn = KNeighborsRegressor()
+    
+      # Inisialisasi GridSearchCV
+        grid_knn = GridSearchCV(
+            estimator=knn,
+            param_grid=param_grid_knn,
+            cv=5,  # 5-fold cross validation
+            scoring='neg_mean_squared_error',  # gunakan MSE sebagai metrik evaluasi
+            n_jobs=-1,  # gunakan semua CPU cores
+            verbose=1  # tampilkan progres
+        )
+    
+        # Melatih GridSearchCV pada data training
+        grid_knn.fit(X_train, y_train)
+    
+        # Menampilkan hasil terbaik
+        print("Best KNN Parameters:", grid_knn.best_params_)
+        print("Best KNN MSE (train):", -grid_knn.best_score_)
+    
+        # Menghitung MSE pada data test menggunakan model terbaik
+        y_pred_test = grid_knn.predict(X_test)
+        test_mse = mean_squared_error(y_test, y_pred_test)
+        print("Best KNN MSE (test):", test_mse)
+      ```
 
-      # buat model prediksi
-      RF = RandomForestRegressor(
-          n_estimators=100,
-          max_depth= 10,
-          min_samples_leaf=4, 
-          min_samples_split=10
-      )
-      RF.fit(X_train, y_train)
+2. **Random Forest (RF)**  
+      Selanjutnya, dilakukan pelatihan model menggunakan algoritma Random Forest yang bekerja dengan membangun banyak pohon keputusan dan menggabungkan hasil prediksi mereka.
+      - Parameter yang digunakan pada awal pelatihan:
+        - n_estimators: jumlah pohon dalam hutan (misalnya 100).
+        - max_depth: kedalaman maksimum pohon (misalnya 10).
+        - min_samples_split dan min_samples_leaf: untuk mengontrol pertumbuhan pohon dan mencegah overfitting.
+      - Untuk mendapatkan model terbaik, dilakukan GridSearchCV pada parameter seperti n_estimators, max_depth, min_samples_split, dan min_samples_leaf.
+      ```
+          from sklearn.ensemble import RandomForestRegressor
+          from sklearn.metrics import mean_squared_error
+    
+          # buat model prediksi
+          RF = RandomForestRegressor(
+              n_estimators=100,
+              max_depth= 10,
+              min_samples_leaf=4, 
+              min_samples_split=10
+          )
+          RF.fit(X_train, y_train)
+    
+          models.loc['train_mse', 'RandomForest'] = mean_squared_error(y_pred=RF.predict(X_train), y_true=y_train)
+      ```
+      - Untuk optimasi model, dilakukan hyperparameter tuning menggunakan **GridSearchCV** untuk mencari kombinasi parameter seperti jumlah pohon (n_estimators) dan kedalaman maksimum pohon (max_depth) yang menghasilkan performa terbaik.
+      ```
+      from sklearn.ensemble import RandomForestRegressor
+      from sklearn.model_selection import GridSearchCV
+    
+      # Setup parameter grid
+      param_grid_rf = {
+          'n_estimators': [50, 100, 200],
+          'max_depth': [5, 10, None],
+          'min_samples_split': [2, 5, 10],
+          'min_samples_leaf': [1, 2, 4]
+      }
+    
+      # Inisialisasi model
+      rf = RandomForestRegressor(random_state=55)
+    
+      # Grid search
+      grid_rf = GridSearchCV(rf, param_grid=param_grid_rf, cv=3, scoring='neg_mean_squared_error', n_jobs=-1)
+      grid_rf.fit(X_train, y_train)
+    
+      # Gunakan model terbaik
+      best_rf = grid_rf.best_estimator_
+    
+      # Hitung MSE
+      train_mse_rf = mean_squared_error(y_train, best_rf.predict(X_train))
+      test_mse_rf = mean_squared_error(y_test, best_rf.predict(X_test))
+    
+      print("Best RF Params:", grid_rf.best_params_)
+      print("Train MSE (RF):", train_mse_rf)
+      print("Test MSE (RF):", test_mse_rf)
+      ```
 
-      models.loc['train_mse', 'RandomForest'] = mean_squared_error(y_pred=RF.predict(X_train), y_true=y_train)
-  ```
-  - Untuk optimasi model, dilakukan hyperparameter tuning menggunakan **GridSearchCV** untuk mencari kombinasi parameter seperti jumlah pohon (n_estimators) dan kedalaman maksimum pohon (max_depth) yang menghasilkan performa terbaik.
-  ```
-  from sklearn.ensemble import RandomForestRegressor
-  from sklearn.model_selection import GridSearchCV
+3. **Linear Regression (LR)**  
+    Model Linear Regression digunakan untuk mengukur hubungan linier antara fitur dan harga laptop.
+      - Model ini tidak memiliki banyak parameter eksplisit seperti algoritma lainnya, tetapi mengasumsikan bahwa hubungan antara variabel prediktor dan target adalah linier.
+      - Evaluasi model dilakukan dengan menghitung MSE pada data latih.
+   
+       from sklearn.linear_model import LinearRegression
+       from sklearn.metrics import mean_squared_error
 
-  # Setup parameter grid
-  param_grid_rf = {
-      'n_estimators': [50, 100, 200],
-      'max_depth': [5, 10, None],
-      'min_samples_split': [2, 5, 10],
-      'min_samples_leaf': [1, 2, 4]
-  }
+       # Inisialisasi dan latih model Linear Regression
+       LR = LinearRegression()
+       LR.fit(X_train, y_train)
+    
+       # Simpan hasil MSE train ke dalam DataFrame models
+       models.loc['train_mse', 'LinearRegression'] = mean_squared_error(y_pred=LR.predict(X_train), y_true=y_train)
+       
 
-  # Inisialisasi model
-  rf = RandomForestRegressor(random_state=55)
-
-  # Grid search
-  grid_rf = GridSearchCV(rf, param_grid=param_grid_rf, cv=3, scoring='neg_mean_squared_error', n_jobs=-1)
-  grid_rf.fit(X_train, y_train)
-
-  # Gunakan model terbaik
-  best_rf = grid_rf.best_estimator_
-
-  # Hitung MSE
-  train_mse_rf = mean_squared_error(y_train, best_rf.predict(X_train))
-  test_mse_rf = mean_squared_error(y_test, best_rf.predict(X_test))
-
-  print("Best RF Params:", grid_rf.best_params_)
-  print("Train MSE (RF):", train_mse_rf)
-  print("Test MSE (RF):", test_mse_rf)
-  ```
-
-- **Linear Regression (LR)**  
-Model Linear Regression digunakan untuk mengukur hubungan linier antara fitur dan harga laptop.
-  - Model ini tidak memiliki banyak parameter eksplisit seperti algoritma lainnya, tetapi mengasumsikan bahwa hubungan antara variabel prediktor dan target adalah linier.
-  - Evaluasi model dilakukan dengan menghitung MSE pada data latih.
-    ```
-    from sklearn.linear_model import LinearRegression
-    from sklearn.metrics import mean_squared_error
-
-    # Inisialisasi dan latih model Linear Regression
-    LR = LinearRegression()
-    LR.fit(X_train, y_train)
-
-    # Simpan hasil MSE train ke dalam DataFrame models
-    models.loc['train_mse', 'LinearRegression'] = mean_squared_error(y_pred=LR.predict(X_train), y_true=y_train)
-  ```
 ---
 
 ### Kelebihan dan Kekurangan Model
-
+    
 | Model | Kelebihan | Kekurangan |
 | :--- | :--- | :--- |
 | K-Nearest Neighbors (KNN) | Sederhana, efektif untuk dataset kecil, tidak membutuhkan asumsi distribusi data | Sensitif terhadap outlier dan noise, kinerja buruk pada dataset besar |
 | Random Forest (RF) | Mengatasi overfitting, robust terhadap noise, akurasi tinggi | Interpretasi sulit, membutuhkan lebih banyak sumber daya komputasi |
 | Linear Regression (LR) | Mudah diinterpretasikan, cepat untuk pelatihan dan prediksi | Sensitif terhadap outlier, tidak efektif untuk hubungan non-linier |
-
+    
 ---
 
 ### Model Terbaik
