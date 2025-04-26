@@ -46,7 +46,7 @@ Sumber Dataset: [Laptop Price Prediction](https://www.kaggle.com/datasets/mrsimp
 - Price (INR) (numerik): Harga laptop dalam satuan mata uang Rupee India, dihasilkan berdasarkan kombinasi fitur dengan penambahan noise acak untuk meniru variasi pasar.
 
 ### Kondisi Data
-1. Missing Value
+1. **Missing Value**
 Missing value adalah data yang hilang atau tidak tercatat dalam dataset. Pada dataset ini, tidak ditemukan missing value, sehingga tidak diperlukan tindakan seperti imputasi atau penghapusan baris data.
 
     | Kolom      | Jumlah Missing Values |
@@ -59,7 +59,7 @@ Missing value adalah data yang hilang atau tidak tercatat dalam dataset. Pada da
     | Weight                     | 0         |
     | Price                     | 0         |
 
-2. Duplicated Data
+2. **Duplicated Data**
 Duplicated data adalah data yang memiliki baris yang identik atau berulang. Pada dataset ini, tidak ditemukan adanya duplikasi data, sehingga tidak diperlukan pembersihan lebih lanjut terkait data ganda.
 
     ```
@@ -67,7 +67,7 @@ Duplicated data adalah data yang memiliki baris yang identik atau berulang. Pada
     ```
     Kode di atas menunjukan adanya 0 data yang terduplikat. 
 
-2. Outliner
+3. **Outliner**
 Outlier adalah nilai data yang menyimpang secara ekstrem dari pola umum data lainnya. Deteksi outlier penting untuk menghindari pengaruh yang berlebihan terhadap model. Berdasarkan pemeriksaan visual (seperti menggunakan boxplot) dan analisis statistik, tidak ditemukan adanya outlier dalam dataset ini.
 
     Berikut ini merupakan rumus perhitungan IQR.
@@ -78,56 +78,62 @@ Outlier adalah nilai data yang menyimpang secara ekstrem dari pola umum data lai
     
     Upper Bound = Q3 + 1.5 × IQR
 
-   ![Alt text](image/image-2.png)
+   ![image-2](https://github.com/user-attachments/assets/7035d9de-5d79-424b-8d55-09377c559032)
+
 
     Gambar tersebut menunjukkan boxplot dari fitur-fitur numerik seperti Processor_Speed, RAM_Size, Storage_Capacity, Screen_Size, Weight, dan Price, yang digunakan untuk mendeteksi outlier dalam data. Secara umum, distribusi data pada semua fitur tampak cukup simetris dengan sedikit outlier, menandakan sebaran data relatif normal dan konsisten.
 
 
 ### Exploratory Data Analysis
 Exploratory Data Analysis (EDA) dilakukan untuk memahami struktur, pola, dan karakteristik yang terdapat dalam dataset sebelum melanjutkan ke tahap pemodelan. Berikut adalah tahapan EDA yang dilakukan:
-1. Deskripsi Variabel
+1. **Deskripsi Variabel**
 Deskripsi variabel dilakukan untuk memeriksa semua kolom pada dataset, termasuk tipe data (numerik atau kategorikal) dan distribusinya. Langkah ini penting untuk memahami karakteristik data dan menentukan pendekatan analisis yang sesuai.
 
-2. Univariate Analysis 
+2. **Univariate Analysis**
 Univariate analysis dilakukan untuk memahami distribusi masing-masing fitur secara individu:
     - Fitur Kategorikal: Untuk fitur kategorikal, dilakukan visualisasi menggunakan histogram atau countplot untuk melihat frekuensi masing-masing kategori.
     
-        ![Alt text](image/image-3.png)
+        ![image-3](https://github.com/user-attachments/assets/561d3431-c919-4df1-8038-88bb060f3d58)
+
     
       Gambar tersebut menunjukkan distribusi jumlah data berdasarkan fitur kategorikal "Brand", di mana merek Dell, Asus, dan Acer memiliki jumlah data yang sedikit lebih banyak dibandingkan Lenovo dan HP. Secara keseluruhan, distribusi antar brand cukup merata, menandakan tidak ada dominasi merek tertentu dalam dataset.
     
     - Fitur Numerik: Untuk fitur numerik, dibuat histogram untuk melihat pola distribusi nilai, seperti apakah data berdistribusi normal, skewed (miring), atau memiliki distribusi khusus lainnya.
     
-        ![Alt text](image/image-4.png)
+        ![image-4](https://github.com/user-attachments/assets/48156f1d-ec15-4367-8cf9-55c2b63b2433)
+
     
         Gambar tersebut menunjukkan distribusi fitur numerik seperti Processor_Speed, RAM_Size, Storage_Capacity, Screen_Size, Weight, dan Price, di mana beberapa fitur (seperti RAM_Size, Storage_Capacity, dan Price) memiliki pola distribusi yang terpusat pada nilai-nilai tertentu. Sementara fitur lain seperti Processor_Speed, Screen_Size, dan Weight cenderung memiliki distribusi yang lebih merata tanpa konsentrasi ekstrem.
 
-3. Multivariate Analysis
+3. **Multivariate Analysis**
 Multivariate analysis dilakukan untuk memahami hubungan antara dua atau lebih fitur dalam dataset:
     - Fitur Kategorikal:
     Untuk fitur kategorikal, dianalisis pengaruh kategori terhadap harga (atau target) dengan menghitung rata-rata harga untuk setiap kategori. Hal ini membantu mengidentifikasi fitur kategori mana yang memiliki pengaruh signifikan terhadap target.
     
-        ![Alt text](image/image-5.png)
+        ![image-5](https://github.com/user-attachments/assets/e23dab8a-fa9a-4f05-8e14-4bf2242345d3)
+
     
         Gambar di atas menunjukkan analisis hubungan antara rata-rata harga (Price) dengan masing-masing Brand laptop. Dapat dilihat bahwa perbedaan harga antar merek relatif kecil, dengan Asus, Acer, dan Lenovo memiliki rata-rata harga sedikit lebih tinggi dibanding HP dan Dell, namun secara umum seluruh merek memiliki kisaran harga yang serupa.
     - Fitur Numerik:
       - Pairplot: Menggunakan fungsi pairplot() untuk mengamati hubungan antar fitur numerik secara visual. Ini membantu mendeteksi korelasi linier, pola hubungan, atau adanya cluster dalam data.
     
-        ![Alt text](image/image-7.png)
+        ![image-7](https://github.com/user-attachments/assets/865fa3d3-d2c8-4e73-9c55-192b966b620c)
+
     
         Sebagian besar fitur numerik tidak memiliki hubungan linear yang kuat dan terdistribusi cukup merata, dengan fitur seperti RAM dan Storage bersifat diskrit.
     
       - Correlation matrix dibuat untuk menampilkan korelasi antar fitur numerik. Visualisasi dengan heatmap digunakan untuk memperjelas fitur-fitur mana yang memiliki korelasi tinggi terhadap target ataupun antar sesama fitur.
     
-        ![Alt text](image/image-6.png)
+        ![image-6](https://github.com/user-attachments/assets/71b4af1d-5f3b-42fa-a529-f469bcc59166)
+
     
         Korelasi antar fitur numerik sangat lemah, di mana harga hanya sedikit dipengaruhi oleh RAM dan Storage, sementara fitur lainnya hampir tidak berkorelasi.
 
 ## Data Preparation
 Pada tahap ini dilakukan beberapa teknik persiapan data untuk memastikan bahwa data siap digunakan dalam proses pemodelan machine learning. Teknik yang dilakukan antara lain:
 
-1. Encoding Fitur Kategorikal 
-      Fitur kategorikal pada dataset, yaitu Brand, diubah menjadi bentuk numerik menggunakan teknik One-Hot Encoding.
+1. **Encoding Fitur Kategorikal**
+          Fitur kategorikal pada dataset, yaitu Brand, diubah menjadi bentuk numerik menggunakan teknik One-Hot Encoding.
       Proses ini bertujuan agar fitur tersebut dapat digunakan oleh algoritma machine learning, yang umumnya hanya menerima input numerik.
       One-Hot Encoding menjaga makna dari fitur kategorikal tanpa memberikan urutan nilai yang salah, sehingga model dapat memanfaatkan informasi kategorikal dengan optimal.
       ```
@@ -138,8 +144,8 @@ Pada tahap ini dilakukan beberapa teknik persiapan data untuk memastikan bahwa d
       df.head()
       ```
 
-2. Train-Test Split
-      Setelah encoding, dataset dibagi menjadi data latih dan data uji dengan perbandingan 90% data latih dan 10% data uji.
+2. **Train-Test Split**
+          Setelah encoding, dataset dibagi menjadi data latih dan data uji dengan perbandingan 90% data latih dan 10% data uji.
       Tujuan dari pembagian ini adalah:
       - Melatih model menggunakan data latih.
       - Menguji performa model terhadap data baru (data uji) yang belum pernah dilihat model sebelumnya, untuk mengevaluasi kemampuan generalisasi model.
@@ -307,14 +313,16 @@ Dalam proyek ini, model prediksi harga laptop dievaluasi menggunakan dua metrik 
   MSE adalah rata-rata dari kuadrat selisih antara nilai prediksi dan nilai aktual. MSE digunakan untuk mengukur seberapa besar kesalahan rata-rata yang dilakukan oleh model regresi. Semakin kecil nilai MSE, semakin baik model dalam melakukan prediksi.  
   Formula MSE:
     
-    ![Alt text](image/image.png)
+    ![image](https://github.com/user-attachments/assets/c38a33c0-2d4d-4056-813d-372205c48058)
+
   
 
 2. **R-Squared (R²)**  
   R² menunjukkan seberapa besar proporsi variansi dalam data target (harga laptop) yang dapat dijelaskan oleh model prediktif. Nilai R² berkisar dari 0 hingga 1, dengan nilai mendekati 1 menunjukkan bahwa model menjelaskan sebagian besar variasi data.  
   Formula R²:
 
-    ![Alt text](image/image-1.png)
+    ![image-1](https://github.com/user-attachments/assets/85854b39-c9c6-46c7-b8a6-72aa4ef30584)
+
   
     Di mana SSres adalah jumlah kuadrat residual dan SStot adalah jumlah kuadrat total.
 
@@ -326,7 +334,8 @@ Berikut adalah hasil evaluasi ketiga model yang digunakan (KNN, Random Forest, d
 
 #### Tabel dan Histogram Mean Squared Error (MSE)
 
-![Alt text](image/image-8.png)
+![image-8](https://github.com/user-attachments/assets/2eb67fb6-9632-4994-8cbc-180daf9a54a0)
+
 
 | Model             | Train MSE | Test MSE  |
 |------------------|-----------|-----------|
@@ -336,7 +345,8 @@ Berikut adalah hasil evaluasi ketiga model yang digunakan (KNN, Random Forest, d
 
 #### Tabel dan Histogram R-Squared (R²)
 
-![Alt text](image/image-9.png)
+![image-9](https://github.com/user-attachments/assets/3b871c22-bb2b-4c3b-8f01-8a44b83f6a92)
+
 
 | Model             | Train R²  | Test R²   |
 |------------------|-----------|-----------|
