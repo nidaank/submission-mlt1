@@ -340,7 +340,7 @@ Berikut adalah hasil evaluasi ketiga model yang digunakan (KNN, Random Forest, d
 | Model             | Train MSE | Test MSE  |
 |------------------|-----------|-----------|
 | KNN              | 41.160    | 37.757    |
-| Random Forest    | 23.525    | 36.609    |
+| Random Forest    | 23.372    | 36.746    |
 | Linear Regression| 38.922    | 32.365    |
 
 #### Tabel dan Histogram R-Squared (R²)
@@ -351,7 +351,7 @@ Berikut adalah hasil evaluasi ketiga model yang digunakan (KNN, Random Forest, d
 | Model             | Train R²  | Test R²   |
 |------------------|-----------|-----------|
 | KNN              | 0.999541  | 0.999502  |
-| Random Forest    | 0.999738  | 0.999531  |
+| Random Forest    | 0.999739  | 0.999529  |
 | Linear Regression| 0.999566  | 0.999573  |
 
 #### Histogram gabungan dari Mean Squared Error (MSE) dan R-Squared (R²)
