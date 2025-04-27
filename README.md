@@ -354,6 +354,9 @@ Berikut adalah hasil evaluasi ketiga model yang digunakan (KNN, Random Forest, d
 | Random Forest    | 0.999738  | 0.999531  |
 | Linear Regression| 0.999566  | 0.999573  |
 
+#### Histogram gabungan dari Mean Squared Error (MSE) dan R-Squared (R²)
+
+![image](https://github.com/user-attachments/assets/84d848f3-019c-4d2d-bddc-8669deab5ea2)
 
 ### Interpretasi Hasil
 
